@@ -1,0 +1,35 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.wrap {
+    margin-top: 50px;
+}
+
+.search {
+    border-radius: 100px;
+    border: 2px solid rgb(255, 139, 119);
+    -webkit-border-radius: 100px;
+    -moz-border-radius: 100px;
+    -ms-border-radius: 100px;
+    -o-border-radius: 100px;
+    width: 400px;
+    height: 30px;
+    padding: 5px 20px;
+    outline: 1px solid transparent;
+    margin-right: 40px;
+}
+
+.search:focus {
+    border: 2px solid rgb(255, 38, 0);
+}
