@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,17 +8,127 @@
     <link rel="stylesheet" href="./style.css">
     <title>Google</title>
 </head>
+
 <body>
     <div class="container">
         <img class="logo" src="./assets/images/google_logo.svg" alt="logo">
 
-        <div class="wrap">
-            <input class="search" type="text" placeholder="Введите поисковый запрос или URL">
-            <button class="btn">НАЙТИ</button>
-        </div>
+        <form name="search">
+            <input id="search" name="search_text" type="text" class="search_text" placeholder="Введите что-нибудь!" />
+            <button id="btn" type="submit" class="btn">НАЙТИ</button>
+        </form>
     </div>
-    
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+    <script>
+        // JS: кликаем по кнопке - видим в alert-е то, что введено в поле поиска. Не использовать onclick атрибут в разметке кода.
+
+        document.querySelector('form[name="search"]').addEventListener('submit', (e) =>{
+
+            e.preventDefault();
+            let search_text =  document.querySelector('input[name="search_text"]').value;
+
+            // Если ввести в поиск слово google и нажать кнопку НАЙТИ, то нужно показать в алерте “Yandex круче. Но это не точно”
+
+            if (search_text === 'google') {
+                alert('Yandex круче. Но это не точно');
+            }
+
+            alert(search_text);
+
+            // Создать массив объектов. 3-4 объекта, каждый имеет свойства name и age. При нажатии на кнопку НАЙТИ также вывести ещё и св-во name первого объекта в массиве
+
+            let objects = [];
+
+            for (let i = 0; i < 4; i++) {
+                objects.push({
+                    'name': 'My name #' + i,
+                    'age': 33
+                });
+            }
+
+            console.log(objects);
+
+            alert(objects.shift().name);
+
+            
+        // показать alert с результатом поиска не сразу, а через 3 секунды после нажатия (всё то же самое, как и работало, в частности с “яндекс круче всех”, но с задержкой в 3 секунды)
+
+            if (search_text === 'google') {
+                setTimeout(() => {
+                    alert('Yandex круче. Но это не точно');
+                }, 3000);
+            }
+        })
+
+
+        // Создать функцию superSum, которая будет в алерте показывать сумму ЛЮБЫХ двух чисел, переданных этой функции через параметры 
+
+        function superSum(a, b) {
+            alert(+a + +b);
+        }
+
+        // Создать массив из чисел в перемешку (не отсортированы). 
+        // С помощью цикла for найти максимальный и минимальный элементы в массиве
     
 
+            const array = [];
+            let max = 0;
+            let min = 0;
+            const value = Math.floor( Math.random() * 100)
+
+            for (let i = 0; i < value; i++) {
+                array.push(Math.floor(Math.random() * 10) + Math.floor(Math.random() * -10));
+            }
+
+            for ( let i = 0; i < array.length; i++ ) {
+
+                if( array[i] > max ){
+
+                    max = array[i]
+
+                }
+
+                if( array[i] < min ){
+
+                    min = array[i]
+
+                }
+                
+            }
+
+            console.log(array);
+            console.log('Максимальный элемент', max);
+            console.log('Минимальный элемент', min);
+        
+
+
+        // Создать 2 переменные a и b… присвоить им любые значения. Потом программно поменять эти значения местами, не используя значения напрямую
+
+        function replaceVariables() {
+
+            let a = "XXX";
+            let b = "YYY";
+
+            console.log('Было', 'a:', a, 'b:', b);
+
+            let c = a;
+            a = b;
+            b = c;
+
+            console.log('Стало', 'a:', a, 'b:', b);
+        }
+
+        // Оформить алгоритм поиска максимального числа в массиве как функцию findMax (чтобы можно было передавать в неё любой массив чисел, а на выходе она возвращала нам максимальное число из массива)
+
+        function findMax(arr) {
+            return Math.max(...arr);
+        }
+
+    </script>
+
 </body>
+
 </html>
