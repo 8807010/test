@@ -67,42 +67,27 @@
         // Создать функцию superSum, которая будет в алерте показывать сумму ЛЮБЫХ двух чисел, переданных этой функции через параметры 
 
         function superSum(a, b) {
-            alert(+a + +b);
+            let result = a + b;
+            window.alert(result);
         }
 
         // Создать массив из чисел в перемешку (не отсортированы). 
         // С помощью цикла for найти максимальный и минимальный элементы в массиве
-    
 
-            const array = [];
-            let max = 0;
-            let min = 0;
-            const value = Math.floor( Math.random() * 100)
+        let numbers = [84, 55, 15, 1234, 181818];
 
-            for (let i = 0; i < value; i++) {
-                array.push(Math.floor(Math.random() * 10) + Math.floor(Math.random() * -10));
-            }
-
-            for ( let i = 0; i < array.length; i++ ) {
-
-                if( array[i] > max ){
-
-                    max = array[i]
-
-                }
-
-                if( array[i] < min ){
-
-                    min = array[i]
-
-                }
-                
-            }
-
-            console.log(array);
-            console.log('Максимальный элемент', max);
-            console.log('Минимальный элемент', min);
-        
+        let min = numbers[0];
+        let max = numbers[0];
+        for (let i = 0; i < numbers.length; i++) {
+        if (numbers[i] < min) {
+            min = numbers[i];
+        }
+        if (numbers[i] > max) {
+            max = numbers[i];
+        }
+        }
+        console.log(min);
+        console.log(max);
 
 
         // Создать 2 переменные a и b… присвоить им любые значения. Потом программно поменять эти значения местами, не используя значения напрямую
